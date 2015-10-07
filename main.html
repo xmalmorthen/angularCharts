@@ -1,0 +1,90 @@
+<!doctype html>
+<html  lang="es">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--[if lt IE 9]>
+            <script src="assets/js/excanvas.js"></script>
+            <script src="assets/js/es5-shim.js"></script>
+        <![endif]-->
+        
+        <meta charset="UTF-8">
+        <title>Graficos con Angular</title>
+        
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="assets/angular/angular-chart.css" />
+        
+        <style type="text/css">
+            .canvasContent{
+                width: 70%;
+                margin: 0 auto;
+            }
+        </style>
+        
+    </head>
+    <body ng-app="app">
+        
+        <div class="container " ng-controller="mainController">
+            <div class="row">
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12">&nbsp;</div>                
+                <div class="col-md-12">
+                    <form class="form-inline">
+                        <div class="form-group">
+                          <label for="initYear">Año</label>
+                          <input type="number" class="form-control input-lg" id="initYear" placeholder="Año Ej. 2005" ng-model="year">
+                        </div>                        
+                        <div class="form-group">&nbsp;</div>
+                        <div class="form-group">&nbsp;</div>
+                        <button class="btn btn-default" ng-click="graph()">Graficar</button>
+                        <button class="btn btn-default" ng-click="initGraphs()">Limpiar gáficas</button>
+                    </form>
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12">&nbsp;</div>
+                
+                <div class="col-md-12" ng-hide="withGraph == false">
+                    <div class="row" >
+                        <div class="col-md-12">
+                            <h1>Gráfica de Lineas</h1>
+                        </div>
+                        <div class="col-md-12">
+                            <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" 
+                            chart-legend="true" chart-series="series" chart-click="onClick"></canvas> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-hide="withGraph == false">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Gráfica de Barras</h1>
+                        </div>
+                        <div class="col-md-12">
+                            <canvas id="bar" class="chart chart-bar"
+                            chart-data="data" chart-labels="labels"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-hide="withGraph == false">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Gráfica de Radar</h1>
+                        </div>
+                        <div class="col-md-12">
+                            <canvas id="radar" class="chart chart-radar"
+                            chart-data="data" chart-labels="labels"></canvas> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/jquery.isloading.min.js"></script>
+    <script src="assets/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="assets/angular/angular.min.js"></script>
+    <script src="assets/js/Chart.min.js"></script>
+    <script src="assets/angular/angular-chart.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/controllers/graphs.js"></script>
+</html>
